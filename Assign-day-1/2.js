@@ -10,6 +10,7 @@ window.addEventListener("load", () => {
         }
     };
     xhr.send();
+    
 });
 
 
