@@ -1,56 +1,25 @@
-<<<<<<< HEAD:Assign-day-1/2.js
 const parent = document.querySelector("#id1");
 window.addEventListener("load", () => {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://reqres.in/api/users?page=2");
+    const parent = document.querySelector("#id1");
 
-    xhr.onreadystatechange = () => {
-        if(xhr.readyState === 4){
-            let sjson = JSON.parse(xhr.responseText);
-            domlogicHere(sjson.data);
-        }
-    };
-    xhr.send();
-    
+    let list = [
+        {id:1, "name":"Deepika"},
+        {id:2, "name":"yash"},
+        {id:3, "name":"chetan"},
+        {id:4, "name":"Deepirupalika"},
+        {id:5, "name":"rupali"},
+        {id:6, "name":"Deepsakshiika"},
+        {id:7, "name":"Deepika"}
+    ];
+
+
+    for(let i=0;i<=list.length;i++)
+    {
+        let items = list[i];
+        let newElement = parent.children[0].cloneNode(true);
+        newElement.style.display ="flex";
+        newElement.children[0].innerHTML = items.name;
+        parent.insertBefore(newElement, parent.firstChild);
+
+    }
 });
-
-
-let domlogicHere = function (list){
-const parent = document.querySelector("#id1");
-for(let i=0; i<list.length; i++){
-    let item = list[i];
-    const newElement = parent.children[0].cloneNode(true);
-    newElement.style.display = "flex";
-    newElement.children[0].innerHTML = item.first_name + " " + item.last_name;
-    parent.insertBefore(newElement, parent.firstChild);
-}
-
-=======
-const parent = document.querySelector("#id1");
-window.addEventListener("load", () => {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://reqres.in/api/users?page=2");
-
-    xhr.onreadystatechange = () => {
-        if(xhr.readyState === 4){
-            let sjson = JSON.parse(xhr.responseText);
-            domlogicHere(sjson.data);
-        }
-    };
-    xhr.send();
-    
-});
-
-
-let domlogicHere = function (list){
-const parent = document.querySelector("#id1");
-for(let i=0; i<list.length; i++){
-    let item = list[i];
-    const newElement = parent.children[0].cloneNode(true);
-    newElement.style.display = "flex";
-    newElement.children[0].innerHTML = item.first_name + " " + item.last_name;
-    parent.insertBefore(newElement, parent.firstChild);
-}
-
->>>>>>> bef4b864f38686b2e8b9a68dfb21dbbd1ae8f65b:2.js
-};
