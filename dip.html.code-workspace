@@ -4,5 +4,8 @@
             "name": "Meanstack_Assignment",
             "path": "."
         }
-    ]
+    ],
+    "settings": {
+        "liveServer.settings.port": 5501
+    }
 }
