@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+  <script src="card.js"></script>  
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-6 bg-dark" style="height: 100vh;">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col-8 bg-light justify-content-center" style="height: 85vh; border-radius: 22px;">
+
+                        <table class="table table-striped mt-2">
+                            <tbody>
+                              <tr>
+                                <th class=" d-flex justify-content-end" scope="col-5">Enter a Name :</th>
+                               <th scope="col-6"><form action="" > <input id="name" minlength="5" required type="text" style="width: 100%;"></form></th>
+                               
+                              </tr>
+                              <tr>
+                                <th class=" d-flex justify-content-end" scope="col-5">Enter Roll Number :</th>
+                                <th scope="col-6"><input id="id" type="number" style="width: 100%;"></th>
+
+                              </tr>
+                              <tr>
+                                <th class="d-flex justify-content-end" scope="row">Date of Birth :</th>
+                                <th><input type="date" name="" id="bdate"></th>
+                              </tr>
+                              <tr>
+                                <th class="d-flex justify-content-end" scope="row">Blood Group :</th>
+                                <th>
+                                  <div class="form-group">
+              
+                                    <select class="d-flex justify-content-end" class="form-control" id="bgroup">
+                                      <option>A+</option>
+                                      <option>A-</option>
+                                      <option>B+</option>
+                                      <option>B-</option>
+                                      <option>O+</option>
+                                      <option>O-</option>
+                                      <option>AB+</option>
+                                      <option>AB-</option>
+                                    </select>
+                                  </div>
+                                </th>
+              
+                              </tr>
+                              <tr>
+                                <th class="d-flex justify-content-end" scope="row">Contact NO. :</th>
+                                <td><input id="number" type="number" value=""></td>
+              
+                              </tr>
+              
+                              <tr>
+                                <th class="d-flex justify-content-end" scope="row">Upload Photo :</th>
+                                <td>
+                                  <div class="custom-file">
+                                    <input type="file" class="" id="customFile">
+              
+                                  </div>
+                                </td>
+              
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="row justify-content-center">
+                          <button class="btn btn-outline-dark justify-content-center"onclick="submit()">Submit</button>
+                        </div>
+                          
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="row d-flex justify-content-center mt-5">
+                    <div class="col-6 bg-light justify-content-center" style="border-radius: 22px;border: 2px solid rgb(68, 68, 68); height: 74vh;">
+                        <div class="row bg-dark justify-content-center align-content-center  text-light"
+                            style="height: 2.8rem; border-top-right-radius: 20px;
+                            border-top-left-radius: 20px; font-size: 20px;">
+                            <div id="idno" > ID: <span>200240320001</span> </div>  
+                         </div>
+                         <div class="row justify-content-center mt-2">
+                            <img id="img" src="default.png" style="height: 180px;" alt="..."
+                              class="rounded-circle shadow-lg p-1 mb-2 bg-white rounded">
+                         </div>
+
+                         <div class="row bg-light mt-3 justify-content-center">
+                           <span id="iname" style="font-family: fantasy; font-size: 20px;"> Deepika Dabi </span>
+                         </div>
+
+                         <div class="row bg-light mt-3 " style="font-size: 20px;font-family: initial;">
+                          <div class="col-6 d-flex justify-content-end"> DOB : </div>
+                          <div id="ibdate" class="col-6"> 12/04/1997</div>
+                        </div>
+
+                        <div class="row bg-light mt-3 " style=" font-size: 20px; font-family: initial;">
+                          <div class="col-6 d-flex justify-content-end"> Blood Group : </div>
+                          <div id="ibgroup" class="col-6"> dont know </div>
+                        </div>
+
+                        <div class="row bg-light mt-3 " style=" font-size: 20px; font-family: initial;">
+                          <div class="col-6 d-flex justify-content-end"> Contact No. : </div>
+                          <div id="inum" class="col-6"> 9644068230 </div>
+                        </div>
+
+                        <div class="row bg-dark mt-3 "
+                          style="height: 45px;  border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
