@@ -1,85 +1,36 @@
-let callAjax = () => {
-    console.log("CALLING AJAX HERE!!!");
-  
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://api.covid19api.com/live/country/south-africa");
-  
-    xhr.onload = () => {
-      // default response is JSON
-      console.log(xhr.responseText);
-  
-      // one change:: the response is in text format let parse and make it json
-      const refjson = JSON.parse(xhr.responseText);
-  
-      // delegating the DOM operation to seprate method
-      handleDOMOperatoinUsingJSON(refjson);
-    };
-  
-    xhr.send();
+let getWeather = function () {
+  let xhr = new XMLHttpRequest();
+
+  document.querySelector("#textid").value;
+
+  let cityName = document.querySelector("#textid").value || "mumbai";
+  let url =
+    "https://api.openweathermap.org/data/2.5/weather?appid=7023923dd26a725da995c75b65864de5&units=metric&q=";
+
+  url = url + cityName;
+
+  xhr.open("GET", url);
+  xhr.onload = () => {
+    const refjson = JSON.parse(xhr.responseText);
+    // lets do DOM Operation now in seprate method.
+    domOperationForResultDisplay(refjson);
   };
-  
-  let handleDOMOperatoinUsingJSON = (refjson) => {
-    // our json is an array so lets iternate
-  
-    for (let i = 0; i < refjson.length; i++) {
-      let item = refjson[i];
-      console.log(item);
-  
-      // DOM OPERATION HERE :: INSIDE THE LIST FOR EACH ITEM
-      const parent = document.querySelector("#parent");
-      const newElement = parent.children[0].cloneNode(true);
-  
-      // now the values are dynamic from server
-      newElement.innerHTML = item.FirstName + " " + item.LastName;
-      parent.insertBefore(newElement, parent.firstChild);
-    }
-  };
-  
-  /**
-   * XML ONE
-   */
-  let callAjax4XML = () => {
-    console.log("AJAX 4 XML RESPONSE");
-  
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://fakerestapi.azurewebsites.net/api/Authors");
-  
-    // set extra header
-    xhr.setRequestHeader("accept", "application/xml");
-  
-    // handle response
-    xhr.onload = () => {
-      console.log(xhr.responseXML);
-  
-      // lets seprate the logic for dom operation
-      handleDOMOperatoinUsingXML(xhr.responseXML);
-    };
-  
-    // finally send the request
-    xhr.send();
-  };
-  
-  let handleDOMOperatoinUsingXML = (xmlDoc) => {
-    console.log(xmlDoc);
-    const authorList = xmlDoc.querySelectorAll("Author");
-  
-    // let iterate array
-  
-    for (let i = 0; i < authorList.length; i++) {
-      // let accecss author
-      const item = authorList[i];
-  
-      // lets access FirstName and LastName
-      const firstName = item.children[0].innerHTML;
-      const lastName = item.children[3].innerHTML;
-  
-      // create sample block
-      const parent = document.querySelector("#parent");
-      const newElement = parent.children[0].cloneNode(true);
-  
-      // replace the hardcode value
-      newElement.innerHTML = firstName + " " + lastName;
-  
-      parent.insertBefore(newElement, parent.firstChild);
-    }
-  };
+
+  xhr.send();
+};
+
+let domOperationForResultDisplay = (refjson) => {
+  console.log(refjson);
+  // lets read MAX and MIN temp
+  const maxTemp = refjson.main.temp_max;
+  const minTemp = refjson.main.temp_min;
+
+  const parent = document.querySelector("#parent");
+
+  // lets replace dummy value with Actual Data from the JSON response.
+
+  const newElement = parent.children[0].cloneNode(true);
+  newElement.innerHTML = "MAX " + maxTemp + " " + "MIN " + minTemp;
+
+  parent.insertBefore(newElement, parent.firstChild);
+};
